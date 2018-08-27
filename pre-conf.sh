@@ -7,7 +7,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y -q php7.0-gd zoneminder
 echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf
 ln -s /etc/apache2/conf-available/fqdn.conf /etc/apache2/conf-enabled/fqdn.conf
 
-cp /zoneminder.conf /etc/apache2/conf-available/zoneminder.conf
+mv /zoneminder.conf /etc/apache2/conf-available/zoneminder.conf
 
 a2enmod cgi
 a2enconf zoneminder
