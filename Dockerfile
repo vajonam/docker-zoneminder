@@ -68,9 +68,11 @@ RUN cd /usr/src \
     && rm -R /usr/src/cambozola-0.936
 
 # add stuff or zmeventnotification.pl
-RUN cd /bin/ \
+RUN cd /usr/bin/ \
     && wget https://raw.githubusercontent.com/pliablepixels/zmeventserver/master/zmeventnotification.pl \
     && chmod a+x zmeventnotification.pl
+RUN perl -MCPAN -e "install JSON::MaybeXS"
+RUN perl -MCPAN -e "install Net::MQTT::Simple"
 RUN perl -MCPAN -e "install Digest::SHA1" 
 RUN perl -MCPAN -e "install Crypt::MySQL"
 RUN perl -MCPAN -e "install Config::IniFiles"
