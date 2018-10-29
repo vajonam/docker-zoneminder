@@ -10,6 +10,7 @@ ln -s /etc/apache2/conf-available/fqdn.conf /etc/apache2/conf-enabled/fqdn.conf
 mv /zoneminder.conf /etc/apache2/conf-available/zoneminder.conf
 
 a2enmod cgi
+a2enmod headers
 a2enconf zoneminder
 chown -R www-data:www-data /usr/share/zoneminder/
 a2enmod rewrite

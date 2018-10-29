@@ -39,6 +39,7 @@ else
            mkdir -p /var/cache/zoneminder/events
            mkdir -p /var/cache/zoneminder/images
            mkdir -p /var/cache/zoneminder/temp
+           mkdir -p /var/cache/zonemindert/cache
         fi
         
         chown -R root:www-data /var/cache/zoneminder /etc/zm/zm.conf
