@@ -73,6 +73,7 @@ RUN cd /usr/bin/ \
     && chmod a+x zmeventnotification.pl
 RUN perl -MCPAN -e "install JSON::MaybeXS"
 RUN perl -MCPAN -e "install Net::MQTT::Simple"
+RUN perl -MCPAN -e "install Net::MQTT::Simple::Auth"
 RUN perl -MCPAN -e "install Digest::SHA1" 
 RUN perl -MCPAN -e "install Crypt::MySQL"
 RUN perl -MCPAN -e "install Config::IniFiles"
