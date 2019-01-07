@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEBIAN_FRONTEND=noninteractive apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y -q php7.0-gd zoneminder
+DEBIAN_FRONTEND=noninteractive apt-get install -y -q php-gd zoneminder
 
 #to fix error relate to ip address of container apache2
 echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf

@@ -1,13 +1,13 @@
 #name of container: docker-zoneminder
 #versison of container: 0.5.9
-FROM quantumobject/docker-baseimage:16.04
+FROM quantumobject/docker-baseimage:18.04
 LABEL maintainer="Angel Rodriguez <angel@quantumobject.com>"
 
 ENV TZ America/New_York
 
 # Update the container
 # Installation of nesesary package/software for this containers...
-RUN echo "deb http://ppa.launchpad.net/iconnor/zoneminder-master/ubuntu `cat /etc/container_environment/DISTRIB_CODENAME` main" >> /etc/apt/sources.list  \
+RUN echo "deb http://ppa.launchpad.net/iconnor/zoneminder-1.32/ubuntu  `cat /etc/container_environment/DISTRIB_CODENAME` main" >> /etc/apt/sources.list  \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 776FFB04 \
     && echo $TZ > /etc/timezone && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends \
                                         libvlc-dev  \
