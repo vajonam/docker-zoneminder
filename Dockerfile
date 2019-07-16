@@ -4,10 +4,11 @@ FROM quantumobject/docker-baseimage:18.04
 LABEL maintainer="Angel Rodriguez <angel@quantumobject.com>"
 
 ENV TZ America/New_York
+ENV MQTT_SIMPLE_ALLOW_INSECURE_LOGIN true
 
 # Update the container
 # Installation of nesesary package/software for this containers...
-RUN echo "deb http://ppa.launchpad.net/iconnor/zoneminder-1.32/ubuntu  `cat /etc/container_environment/DISTRIB_CODENAME` main" >> /etc/apt/sources.list  \
+RUN echo "deb http://ppa.launchpad.net/iconnor/zoneminder-master/ubuntu bionic  main" >> /etc/apt/sources.list  \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 776FFB04 \
     && echo $TZ > /etc/timezone && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends \
                                         libvlc-dev  \
@@ -73,7 +74,6 @@ RUN cd /usr/bin/ \
     && chmod a+x zmeventnotification.pl
 RUN perl -MCPAN -e "install JSON::MaybeXS"
 RUN perl -MCPAN -e "install Net::MQTT::Simple"
-RUN perl -MCPAN -e "install Net::MQTT::Simple::Auth"
 RUN perl -MCPAN -e "install Digest::SHA1" 
 RUN perl -MCPAN -e "install Crypt::MySQL"
 RUN perl -MCPAN -e "install Config::IniFiles"
